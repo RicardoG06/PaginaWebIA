@@ -1,0 +1,47 @@
+arbol = { # representación como lista de adyacencia
+  '5' : ['3','7'],
+  '3' : ['2', '4'],
+  '7' : ['8'],
+  '2' : [],
+  '4' : ['9'],
+  '8' : ['10','11'],
+  '9' : [],
+  '10' : [],
+  '11' : [],
+}
+
+visitados_dfs = set() # conjunto para mantener los nodos visitados
+
+def dfs(visitados, arbol, nodo):  #función de búsqueda por profundidad
+    if nodo not in visitados:
+        print (nodo)
+        visitados.add(nodo)
+        for vecino in arbol[nodo]:
+ 
+            dfs(visitados, arbol, vecino)
+
+
+visitados_bfs = []   #Lista de nodos visitados
+cola = []     #Inicializando la cola
+
+def bfs(visitados, arbol, nodo): #función de búsqueda por anchura
+  visitados.append(nodo)
+  cola.append(nodo)
+
+  while cola:          #se crea un bucle por cada nodo visitado
+    m = cola.pop(0) 
+    print (m, fin = " ") 
+
+    for vecino in arbol[m]:
+      if vecino not in visitados:
+        visitados.append(vecino)
+        cola.append(vecino)
+
+
+# Ejecución
+print("Búsqueda por profundidad:")
+dfs(visitados_dfs, arbol, '5')
+print("\n")
+print("Búsqueda por anchura:")
+bfs(visitados_bfs, arbol, '5') 
+print("\n")
