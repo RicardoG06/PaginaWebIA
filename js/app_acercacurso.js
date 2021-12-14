@@ -5,7 +5,7 @@ function idioma(){
     console.log(check.checked);
     let id = check.checked;
     if (id==true){
-        location.href="../contenido-eng/acerca_curso-eng.html"
+        location.href="../contenido-eng/acerca_curso-eng.html";
     }else{
         location.href="../contenido-es/acerca_curso.html";
     }
